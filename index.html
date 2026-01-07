@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EMIP™ by Victor Bosah</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>EMIP™</h1>
+  <h2>Enterprise Monetization Intelligence Platform</h2>
+  <p>For SaaS & Fintech Companies · Built by Victor G.</p>
+</header>
+
+<main>
+  <section class="card">
+    <input id="company" placeholder="Company website (e.g. saascompany.com)">
+    <select id="industry">
+      <option>SaaS</option>
+      <option>Fintech</option>
+    </select>
+    <button onclick="runScan()">Run Monetization Scan</button>
+  </section>
+
+  <section id="report" class="report hidden"></section>
+</main>
+
+<footer>
+  <p>Public-data analysis · No servers · No tracking</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
