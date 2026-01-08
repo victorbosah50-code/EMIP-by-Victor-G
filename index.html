@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EMIP™ – Enterprise Monetization Intelligence Platform</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-    <!-- NAV (Futuristic with neon hover) -->
+    <!-- NAV -->
     <header class="nav">
         <div class="logo neon-glow">EMIP™</div>
         <nav>
@@ -20,7 +19,7 @@
         </nav>
     </header>
 
-    <!-- HERO (Holographic effect) -->
+    <!-- HERO -->
     <section class="hero holographic">
         <h1>Reveal Where Your Company Is <span class="neon-glow">Silently Losing Millions</span></h1>
         <p>EMIP™ is an Enterprise Monetization Intelligence Platform that detects pricing leaks, revenue gaps, and growth risks using only public signals — no internal data, no integrations, no friction.</p>
@@ -28,23 +27,23 @@
         <p class="trust">No login • No credentials • No access to your systems</p>
     </section>
 
-    <!-- PLATFORM (Grid with animations) -->
+    <!-- PLATFORM -->
     <section id="platform" class="section">
         <h2>What EMIP™ Does</h2>
         <div class="grid">
-            <div class="card neon-card"> <h3>Monetization Gap Detection</h3> <p>Identifies pricing, packaging, and expansion revenue blind spots hidden inside your growth funnel.</p> </div>
-            <div class="card neon-card"> <h3>Revenue Risk Intelligence</h3> <p>Flags churn exposure, competitive pressure, and enterprise adoption risks before they hit your P&L.</p> </div>
-            <div class="card neon-card"> <h3>Strategy-Grade Insights</h3> <p>Clear, executive-ready recommendations — not dashboards or vanity metrics.</p> </div>
+            <div class="card neon-card"><h3>Monetization Gap Detection</h3><p>Identifies pricing, packaging, and expansion revenue blind spots hidden inside your growth funnel.</p></div>
+            <div class="card neon-card"><h3>Revenue Risk Intelligence</h3><p>Flags churn exposure, competitive pressure, and enterprise adoption risks before they hit your P&L.</p></div>
+            <div class="card neon-card"><h3>Strategy-Grade Insights</h3><p>Clear, executive-ready recommendations — not dashboards or vanity metrics.</p></div>
         </div>
     </section>
 
-    <!-- SCAN (Advanced UI with heatmap) -->
+    <!-- SCAN -->
     <section id="scan" class="section scan">
         <h2>Free Public Monetization Scan</h2>
-        <p>Run a high-level monetization intelligence scan on your company in under 60 seconds.</p>
+        <p>Run a high-level monetization intelligence scan on your company in under 60 seconds using real public website data.</p>
         <div class="scan-box">
-            <input type="text" id="company" placeholder="Company name">
-            <input type="text" id="website" placeholder="Company website">
+            <input type="text" id="company" placeholder="Company name" />
+            <input type="text" id="website" placeholder="Company website (e.g., https://example.com)" />
             <select id="industry">
                 <option>SaaS</option>
                 <option>Fintech</option>
@@ -53,43 +52,50 @@
             </select>
             <button onclick="runScan()">Run Scan</button>
         </div>
+
         <div id="results" class="results hidden"></div>
-        <section id="heatmap-section">
+
+        <!-- Monetization Heatmap Visuals -->
+        <section id="heatmap-section" class="hidden">
             <h2>Monetization Heatmap Visuals</h2>
             <canvas id="heatmap-canvas" width="600" height="400"></canvas>
         </section>
-        <section id="controls">
+
+        <!-- Controls for Webinar Simulation, Exports, Investor Mode -->
+        <section id="controls" class="hidden">
             <button id="prev-slide">Previous Slide</button>
             <button id="next-slide">Next Slide</button>
-            <button id="export-pdf">Export Pitch Deck PDF</button>
+            <button id="export-pdf">Export Results PDF</button>
             <button id="export-csv">Export Email List CSV</button>
             <label for="investor-mode">Investor / PE Mode:</label>
             <input type="checkbox" id="investor-mode">
+            <div id="investor-views" style="display: none;">
+                <h3>Investor / PE Mode Views</h3>
+                <p>Drawdown analysis for SaaS/Fintech: Potential 15-30% revenue drawdown from undetected leaks based on public signals.</p>
+            </div>
         </section>
-        <div id="investor-views" style="display: none;">
-            <h3>Investor / PE Mode Views</h3>
-            <canvas id="valuation-chart" width="600" height="300"></canvas>
-            <p>Valuation risks, scale opportunities, and PE-specific heatmaps. Drawdown analysis for SaaS/Fintech: Potential 15-30% revenue drawdown from undetected leaks.</p>
-        </div>
-    </section>
 
-    <!-- EMAIL CAPTURE -->
-    <section id="email-capture">
-        <h2>Capture Email (Privacy-Safe)</h2>
-        <form id="email-form">
-            <input type="email" id="email-input" placeholder="Enter your email" required>
-            <button type="submit">Submit</button>
-        </form>
-        <p>Emails stored locally in your browser for privacy. Export to CSV for outreach.</p>
+        <!-- Email Capture (Billion-dollar move: Lead gen for outreach) -->
+        <section id="email-capture">
+            <h2>Capture Email (Privacy-Safe)</h2>
+            <form id="email-form">
+                <input type="email" id="email-input" placeholder="Enter your email" required>
+                <button type="submit">Submit</button>
+            </form>
+            <p>Emails stored locally for privacy. Export to CSV for outreach lists.</p>
+        </section>
+
+        <!-- Webinar Slide Content (Separate from results) -->
+        <div id="slide-content" class="hidden"></div>
     </section>
 
     <!-- USE CASES -->
     <section id="usecases" class="section">
         <h2>Who EMIP™ Is For</h2>
         <div class="grid">
-            <div class="card neon-card"> <h3>Founders & CEOs</h3> <p>Understand where growth is leaking before scaling burns capital.</p> </div>
-            <div class="card neon-card"> <h3>CFOs & Finance Teams</h3> <p>Surface revenue inefficiencies that traditional analytics miss.</p> </div>
-            <div class="card neon-card"> <h3>Investors & PE</h3> <p>Run fast monetization due diligence using external signals.</p> </div>
+            <div class="card neon-card"><h3>Founders & CEOs</h3><p>Understand where growth is leaking before scaling burns capital.</p></div>
+            <div class="card neon-card"><h3>CFOs & Finance Teams</h3><p>Surface revenue inefficiencies that traditional analytics miss.</p></div>
+            <div class="card neon-card"><h3>Investors & PE</h3><p>Run fast monetization due diligence using external signals.</p></div>
         </div>
     </section>
 
@@ -103,13 +109,14 @@
         <p>© 2026 EMIP™ — Built by Victor Bosah</p>
     </footer>
 
-    <!-- AI Cybersecurity Co-Pilot & Live Chat (Floating bottom-right) -->
+    <!-- AI Cybersecurity Co-Pilot & Live Chat -->
     <div id="ai-copilot" class="floating-copilot neon-glow">
         <button onclick="toggleChat()">AI Co-Pilot & Chat</button>
         <div id="chat-window" style="display: none;">
-            <p>AI Cybersecurity Co-Pilot: Ask about monetization security or chat live (placeholder).</p>
-            <input type="text" placeholder="Type your question...">
-            <button>Send</button>
+            <p>Welcome to AI Cybersecurity Co-Pilot. Ask about monetization security or risks.</p>
+            <input type="text" id="chat-input" placeholder="Type your question...">
+            <button onclick="sendChat()">Send</button>
+            <div id="chat-messages"></div>
         </div>
     </div>
 
