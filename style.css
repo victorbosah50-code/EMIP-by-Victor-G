@@ -1,96 +1,77 @@
-* {
-  box-sizing: border-box;
-  font-family: "Inter", system-ui, sans-serif;
-}
-
 body {
-  margin: 0;
-  background: #f7f4ef;
-  color: #111;
+    background-color: #0a0a0a;
+    color: #00ffcc;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 20px;
+    animation: glow-bg 5s infinite alternate;
 }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: #ffffff;
-  border-bottom: 1px solid #ddd;
+@keyframes glow-bg {
+    0% { background-color: #0a0a0a; }
+    100% { background-color: #001a1a; }
 }
 
-.nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #000;
-  font-weight: 500;
+.neon-header {
+    text-align: center;
+    border-bottom: 2px solid #00ffcc;
+    padding-bottom: 20px;
+    text-shadow: 0 0 10px #00ffcc;
+    animation: neon-flicker 1.5s infinite alternate;
 }
 
-.hero {
-  padding: 100px 40px;
-  text-align: center;
-  background: linear-gradient(135deg, #fffaf0, #f7f4ef);
+@keyframes neon-flicker {
+    0% { text-shadow: 0 0 5px #00ffcc; }
+    100% { text-shadow: 0 0 20px #00ffcc; }
 }
 
-.hero span {
-  color: #6a4df4;
+h1, h2, h3 {
+    color: #00ffcc;
 }
 
-.hero button {
-  padding: 14px 28px;
-  background: #000;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
+button {
+    background-color: #00ffcc;
+    color: #0a0a0a;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.section {
-  padding: 80px 40px;
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #00ffcc;
 }
 
-.scan-box {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 20px;
+#slide-content {
+    border: 1px solid #00ffcc;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #001a1a;
+    box-shadow: 0 0 10px #00ffcc;
 }
 
-input, select {
-  padding: 12px;
-  width: 220px;
+#email-form {
+    display: flex;
+    justify-content: center;
 }
 
-.results {
-  margin-top: 30px;
-  padding: 20px;
-  background: #ffffff;
-  border-left: 4px solid #000;
+#email-input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #00ffcc;
+    background-color: #0a0a0a;
+    color: #00ffcc;
 }
 
-.hidden {
-  display: none;
+#heatmap-canvas, #valuation-chart {
+    border: 1px solid #00ffcc;
+    margin: 20px auto;
+    display: block;
 }
 
-canvas {
-  background: #fff;
-  border: 1px solid #ddd;
-}
-
-.chat-box {
-  max-width: 600px;
-}
-
-.chat-log {
-  height: 200px;
-  overflow-y: auto;
-  background: #fff;
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-}
-
-footer {
-  padding: 30px;
-  text-align: center;
-  background: #fff;
-  border-top: 1px solid #ddd;
+.positioning-statement {
+    font-style: italic;
+    color: #ffcc00;
 }
