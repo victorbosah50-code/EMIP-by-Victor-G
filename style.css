@@ -1,83 +1,55 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f3f4f6;
-  color: #111;
-  margin: 0;
-  padding: 0;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; }
+body { background: #0b0f1a; color: #eaeaf0; line-height: 1.6; position: relative; overflow-x: hidden; }
+body::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(122,162,255,0.1) 0%, transparent 70%); opacity: 0.5; pointer-events: none; animation: pulse 5s infinite; }
+@keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
 
-header {
-  background: linear-gradient(90deg, #0f172a, #1e293b);
-  color: white;
-  padding: 2rem;
-  text-align: center;
-}
+/* Neon Glow */
+.neon-glow { text-shadow: 0 0 10px #7aa2ff, 0 0 20px #7aa2ff; animation: neon-flicker 1.5s infinite alternate; }
+@keyframes neon-flicker { 0% { text-shadow: 0 0 5px #7aa2ff; } 100% { text-shadow: 0 0 20px #7aa2ff; } }
 
-h1 {
-  font-size: 2.5rem;
-}
+/* Holographic */
+.holographic { position: relative; }
+.holographic::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(transparent, rgba(122,162,255,0.2), transparent); animation: scanline 2s infinite linear; }
+@keyframes scanline { 0% { top: -100%; } 100% { top: 100%; } }
 
-main {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
-}
+/* NAV */
+.nav { display: flex; justify-content: space-between; padding: 20px 40px; background: #0f1525; position: sticky; top: 0; z-index: 10; }
+.nav a { margin-left: 20px; text-decoration: none; color: #cfd6ff; transition: color 0.3s; }
+.nav a:hover { color: #7aa2ff; }
 
-button {
-  background-color: #3b82f6;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.25rem;
-  margin: 0.25rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
+/* HERO */
+.hero { padding: 100px 40px; text-align: center; }
 
-button:hover {
-  background-color: #2563eb;
-}
+/* SECTIONS */
+.section { padding: 80px 40px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+.card { background: #121a35; padding: 30px; border-radius: 12px; transition: transform 0.3s, box-shadow 0.3s; }
+.neon-card:hover { transform: scale(1.05); box-shadow: 0 0 20px #7aa2ff; }
 
-.chat-box {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  width: 400px;
-  max-width: 100%;
-  margin-top: 1rem;
-  border-radius: 0.5rem;
-}
+/* SCAN */
+.scan-box { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 15px; }
+.scan-box input, .scan-box select { padding: 12px; width: 220px; background: #0f1525; border: 1px solid #7aa2ff; color: #eaeaf0; }
+.scan-box button { padding: 12px 20px; background: #7aa2ff; border: none; cursor: pointer; transition: box-shadow 0.3s; }
+.scan-box button:hover { box-shadow: 0 0 15px #7aa2ff; }
 
-.messages {
-  height: 150px;
-  overflow-y: auto;
-  margin-bottom: 0.5rem;
-  background: #fff;
-  border-radius: 0.25rem;
-  padding: 0.5rem;
-}
+/* RESULTS */
+.results { margin-top: 40px; padding: 20px; background: #10172e; border-radius: 10px; }
 
-input[type="text"], input[type="email"], textarea {
-  width: 100%;
-  padding: 0.75rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
-}
+/* CTA */
+.cta { text-align: center; padding: 100px 40px; background: linear-gradient(135deg, #1a245f, #0b0f1a); }
 
-.slides {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 0.5rem;
-  background: #fff;
-  min-height: 150px;
-}
+/* Floating AI Co-Pilot */
+.floating-copilot { position: fixed; bottom: 20px; right: 20px; z-index: 100; }
+.floating-copilot button { padding: 10px 20px; background: #7aa2ff; border: none; cursor: pointer; }
+#chat-window { background: #121a35; padding: 15px; border-radius: 10px; margin-top: 10px; }
+#chat-window input { width: 100%; padding: 8px; margin-bottom: 10px; }
 
-.slide {
-  display: none;
-}
+/* Heatmap & Charts */
+#heatmap-canvas, #valuation-chart { border: 1px solid #7aa2ff; margin: 20px auto; display: block; background: #0f1525; }
 
-.slide.active {
-  display: block;
-}
+/* Controls */
+#controls button { margin: 10px; padding: 10px 20px; background: #7aa2ff; border: none; cursor: pointer; }
+#controls button:hover { box-shadow: 0 0 15px #7aa2ff; }
+
+.hidden { display: none; }
+footer { padding: 20px; text-align: center; font-size: 13px; opacity: 0.6; }
