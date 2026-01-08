@@ -1,87 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>EMIP™ | Enterprise Monetization Intelligence</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMIP™ | Enterprise Monetization Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
-
 <body>
+    <header class="neon-header">
+        <h1>EMIP™ - Enterprise Monetization Intelligence Platform</h1>
+        <p class="positioning-statement">FINAL POSITIONING STATEMENT: EMIP™ is the pre-financial intelligence layer that exposes hidden revenue risks and growth opportunities using only public market signals, empowering executives, investors, and operators to act before metrics reflect damage.</p>
+    </header>
 
-<header class="nav">
-  <div class="logo">EMIP™</div>
-  <nav>
-    <a href="#scan">Free Scan</a>
-    <a href="#heatmap">Heatmap</a>
-    <a href="#investor">Investor / PE</a>
-    <a href="#security">AI Security</a>
-  </nav>
-</header>
+    <main>
+        <section id="announcement">
+            <h2>🚨 FINAL ANNOUNCEMENT: EMIP™</h2>
+            <p>Revenue doesn’t fail loudly. It fails quietly; long before dashboards, forecasts, or churn metrics react. That silent failure is what I built EMIP™ to expose.</p>
+            <!-- Full announcement text from your input integrated here -->
+            <div id="slide-content"></div> <!-- Dynamic slide content here -->
+        </section>
 
-<section class="hero">
-  <h1>
-    Enterprise Monetization Intelligence<br/>
-    <span>See Revenue Risk Before It Hits the P&L</span>
-  </h1>
-  <p>
-    EMIP™ reveals pricing leaks, monetization gaps, and growth risk using
-    public intelligence only — no integrations, no internal data.
-  </p>
-  <button onclick="scrollToScan()">Run Free Scan</button>
-  <p class="trust">No login • No credentials • No tracking</p>
-</section>
+        <section id="controls">
+            <button id="prev-slide">Previous Slide</button>
+            <button id="next-slide">Next Slide</button>
+            <button id="export-pdf">Export Slide Deck PDF</button>
+            <button id="export-csv">Export Email List CSV</button>
+            <label for="investor-mode">Investor / PE Mode:</label>
+            <input type="checkbox" id="investor-mode">
+        </section>
 
-<!-- SCAN -->
-<section id="scan" class="section">
-  <h2>Free Monetization Intelligence Scan</h2>
+        <section id="email-capture">
+            <h2>Capture Email (Privacy-Safe)</h2>
+            <form id="email-form">
+                <input type="email" id="email-input" placeholder="Enter your email" required>
+                <button type="submit">Submit</button>
+            </form>
+            <p>Emails stored locally in your browser for privacy. Export to CSV for outreach.</p>
+        </section>
 
-  <div class="scan-box">
-    <input id="company" placeholder="Company name"/>
-    <input id="website" placeholder="Company website"/>
-    <input id="email" placeholder="Optional email (report delivery)"/>
-    <select id="industry">
-      <option>SaaS</option>
-      <option>Fintech</option>
-      <option>Marketplace</option>
-      <option>AI Platform</option>
-    </select>
-    <button onclick="runScan()">Run Scan</button>
-  </div>
+        <section id="heatmap-section">
+            <h2>Monetization Heatmap Visuals</h2>
+            <canvas id="heatmap-canvas" width="400" height="300"></canvas>
+            <div id="investor-views" style="display: none;">
+                <h3>Investor / PE Mode Views</h3>
+                <canvas id="valuation-chart" width="400" height="200"></canvas>
+                <p>Additional insights: Valuation risks, scale opportunities, and PE-specific heatmaps.</p>
+            </div>
+        </section>
+    </main>
 
-  <div id="results" class="results hidden"></div>
-</section>
+    <footer>
+        <p>© 2026 Victor Bosah. All rights reserved.</p>
+    </footer>
 
-<!-- HEATMAP -->
-<section id="heatmap" class="section">
-  <h2>Monetization Risk Heatmap</h2>
-  <canvas id="heatmapCanvas" width="700" height="300"></canvas>
-</section>
-
-<!-- INVESTOR MODE -->
-<section id="investor" class="section">
-  <h2>Investor / PE Intelligence Mode</h2>
-  <p>
-    Designed for due diligence, valuation risk analysis, and growth forecasting.
-  </p>
-  <button onclick="runInvestorMode()">Run Investor Analysis</button>
-  <div id="investorResults" class="results hidden"></div>
-</section>
-
-<!-- SECURITY -->
-<section id="security" class="section">
-  <h2>AI Cybersecurity Co-Pilot</h2>
-  <div class="chat-box">
-    <div id="chatLog" class="chat-log"></div>
-    <input id="chatInput" placeholder="Ask the AI Security Co-Pilot…"/>
-    <button onclick="sendChat()">Send</button>
-  </div>
-</section>
-
-<footer>
-  © 2026 EMIP™ · Enterprise Intelligence by Victor Bosah
-</footer>
-
-<script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
