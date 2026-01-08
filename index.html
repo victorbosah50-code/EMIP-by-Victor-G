@@ -2,129 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EMIP™ – Enterprise Monetization Intelligence Platform</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>EMIP™ | Enterprise Monetization Intelligence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
-  <!-- NAV -->
-  <header class="nav">
-    <div class="logo">EMIP™</div>
-    <nav>
-      <a href="#platform">Platform</a>
-      <a href="#scan">Free Scan</a>
-      <a href="#usecases">Use Cases</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>
-      Reveal Where Your Company Is <span>Silently Losing Millions</span>
-    </h1>
-    <p>
-      EMIP™ is an Enterprise Monetization Intelligence Platform that detects
-      pricing leaks, revenue gaps, and growth risks using only public signals —
-      no internal data, no integrations, no friction.
-    </p>
-    <button onclick="scrollToScan()">Run Free Monetization Scan</button>
-    <p class="trust">
-      No login • No credentials • No access to your systems
-    </p>
-  </section>
+<header class="nav">
+  <div class="logo">EMIP™</div>
+  <nav>
+    <a href="#scan">Free Scan</a>
+    <a href="#heatmap">Heatmap</a>
+    <a href="#investor">Investor / PE</a>
+    <a href="#security">AI Security</a>
+  </nav>
+</header>
 
-  <!-- PLATFORM -->
-  <section id="platform" class="section">
-    <h2>What EMIP™ Does</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Monetization Gap Detection</h3>
-        <p>
-          Identifies pricing, packaging, and expansion revenue blind spots
-          hidden inside your growth funnel.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Revenue Risk Intelligence</h3>
-        <p>
-          Flags churn exposure, competitive pressure, and enterprise adoption
-          risks before they hit your P&L.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Strategy-Grade Insights</h3>
-        <p>
-          Clear, executive-ready recommendations — not dashboards or vanity
-          metrics.
-        </p>
-      </div>
-    </div>
-  </section>
+<section class="hero">
+  <h1>
+    Enterprise Monetization Intelligence<br/>
+    <span>See Revenue Risk Before It Hits the P&L</span>
+  </h1>
+  <p>
+    EMIP™ reveals pricing leaks, monetization gaps, and growth risk using
+    public intelligence only — no integrations, no internal data.
+  </p>
+  <button onclick="scrollToScan()">Run Free Scan</button>
+  <p class="trust">No login • No credentials • No tracking</p>
+</section>
 
-  <!-- SCAN -->
-  <section id="scan" class="section scan">
-    <h2>Free Public Monetization Scan</h2>
-    <p>
-      Run a high-level monetization intelligence scan on your company in under
-      60 seconds.
-    </p>
+<!-- SCAN -->
+<section id="scan" class="section">
+  <h2>Free Monetization Intelligence Scan</h2>
 
-    <div class="scan-box">
-      <input type="text" id="company" placeholder="Company name" />
-      <input type="text" id="website" placeholder="Company website" />
-      <select id="industry">
-        <option>SaaS</option>
-        <option>Fintech</option>
-        <option>Marketplace</option>
-        <option>AI / Platform</option>
-      </select>
-      <button onclick="runScan()">Run Scan</button>
-    </div>
+  <div class="scan-box">
+    <input id="company" placeholder="Company name"/>
+    <input id="website" placeholder="Company website"/>
+    <input id="email" placeholder="Optional email (report delivery)"/>
+    <select id="industry">
+      <option>SaaS</option>
+      <option>Fintech</option>
+      <option>Marketplace</option>
+      <option>AI Platform</option>
+    </select>
+    <button onclick="runScan()">Run Scan</button>
+  </div>
 
-    <div id="results" class="results hidden"></div>
-  </section>
+  <div id="results" class="results hidden"></div>
+</section>
 
-  <!-- USE CASES -->
-  <section id="usecases" class="section">
-    <h2>Who EMIP™ Is For</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Founders & CEOs</h3>
-        <p>
-          Understand where growth is leaking before scaling burns capital.
-        </p>
-      </div>
-      <div class="card">
-        <h3>CFOs & Finance Teams</h3>
-        <p>
-          Surface revenue inefficiencies that traditional analytics miss.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Investors & PE</h3>
-        <p>
-          Run fast monetization due diligence using external signals.
-        </p>
-      </div>
-    </div>
-  </section>
+<!-- HEATMAP -->
+<section id="heatmap" class="section">
+  <h2>Monetization Risk Heatmap</h2>
+  <canvas id="heatmapCanvas" width="700" height="300"></canvas>
+</section>
 
-  <!-- CTA -->
-  <section id="contact" class="cta">
-    <h2>This Is Not Analytics. It’s Monetization Intelligence.</h2>
-    <p>
-      If you’re scaling a SaaS or Fintech company and want clarity before
-      committing capital — EMIP™ is built for you.
-    </p>
-    <button onclick="scrollToScan()">Run Free Scan</button>
-  </section>
+<!-- INVESTOR MODE -->
+<section id="investor" class="section">
+  <h2>Investor / PE Intelligence Mode</h2>
+  <p>
+    Designed for due diligence, valuation risk analysis, and growth forecasting.
+  </p>
+  <button onclick="runInvestorMode()">Run Investor Analysis</button>
+  <div id="investorResults" class="results hidden"></div>
+</section>
 
-  <footer>
-    <p>© 2026 EMIP™ — Built by Victor Bosah</p>
-  </footer>
+<!-- SECURITY -->
+<section id="security" class="section">
+  <h2>AI Cybersecurity Co-Pilot</h2>
+  <div class="chat-box">
+    <div id="chatLog" class="chat-log"></div>
+    <input id="chatInput" placeholder="Ask the AI Security Co-Pilot…"/>
+    <button onclick="sendChat()">Send</button>
+  </div>
+</section>
 
-  <script src="app.js"></script>
+<footer>
+  © 2026 EMIP™ · Enterprise Intelligence by Victor Bosah
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
