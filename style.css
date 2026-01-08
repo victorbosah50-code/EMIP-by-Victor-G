@@ -1,70 +1,117 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Inter, system-ui, sans-serif;
-  background: linear-gradient(180deg, #020617, #000);
-  color: #e5e7eb;
 }
 
-header {
+body {
+  background: #0b0f1a;
+  color: #eaeaf0;
+  line-height: 1.6;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: #0f1525;
+  position: sticky;
+  top: 0;
+}
+
+.nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #cfd6ff;
+}
+
+/* HERO */
+.hero {
+  padding: 100px 40px;
   text-align: center;
-  padding: 70px 20px;
 }
 
-h1 {
-  font-size: 52px;
-  letter-spacing: 1px;
+.hero h1 span {
+  color: #7aa2ff;
 }
 
-h2 {
-  font-weight: 400;
-  color: #94a3b8;
-}
-
-main {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-}
-
-.card {
-  background: #0f172a;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-}
-
-input, select {
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 14px;
-  border-radius: 10px;
+.hero button {
+  margin-top: 30px;
+  padding: 14px 28px;
+  background: #7aa2ff;
   border: none;
   font-size: 16px;
-}
-
-button {
-  width: 100%;
-  padding: 18px;
-  background: #6366f1;
-  border: none;
-  border-radius: 14px;
-  color: white;
-  font-size: 17px;
   cursor: pointer;
 }
 
-.report {
-  margin-top: 35px;
-  background: #020617;
-  padding: 35px;
-  border-radius: 18px;
+.trust {
+  margin-top: 12px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* SECTIONS */
+.section {
+  padding: 80px 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  background: #121a35;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+/* SCAN */
+.scan-box {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.scan-box input,
+.scan-box select {
+  padding: 12px;
+  width: 220px;
+}
+
+.scan-box button {
+  padding: 12px 20px;
+  background: #7aa2ff;
+  border: none;
+}
+
+/* RESULTS */
+.results {
+  margin-top: 40px;
+  padding: 20px;
+  background: #10172e;
+  border-radius: 10px;
 }
 
 .hidden {
   display: none;
 }
 
-.export-btn {
-  margin-top: 20px;
-  background: #16a34a;
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 100px 40px;
+  background: linear-gradient(135deg, #1a245f, #0b0f1a);
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.6;
 }
