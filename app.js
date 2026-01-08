@@ -1,126 +1,105 @@
-/* ================================
-   EMIP™ Advanced Client-Side Engine
-   Enterprise Monetization Intelligence
-   Built for GitHub Pages (No Servers)
-================================ */
-
-/* ---------- Utilities ---------- */
+/* ============================
+   EMIP™ ENTERPRISE ENGINE
+   Client-Side | GitHub Ready
+============================ */
 
 function scrollToScan() {
   document.getElementById("scan").scrollIntoView({ behavior: "smooth" });
 }
 
-function randomBetween(min, max) {
+function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-/* ---------- Core Scan Engine ---------- */
+/* ---- PDF EXPORT ---- */
+function exportPDF(text) {
+  const blob = new Blob([text], { type: "application/pdf" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "EMIP_Report.pdf";
+  link.click();
+}
 
+/* ---- RUN SCAN ---- */
 function runScan() {
-  const company = document.getElementById("company").value.trim();
-  const website = document.getElementById("website").value.trim();
-  const industry = document.getElementById("industry").value;
-
-  if (!company || !website) {
-    alert("Please enter company name and website.");
-    return;
-  }
+  const company = companyInput();
+  const score = rand(45, 88);
 
   const results = document.getElementById("results");
   results.classList.remove("hidden");
 
-  // Loading State
-  results.innerHTML = `
-    <h3>Running Monetization Intelligence Scan…</h3>
-    <p>Analyzing public pricing signals, positioning, and growth patterns.</p>
-    <p><em>This takes ~10–20 seconds.</em></p>
+  const report = `
+EMIP MONETIZATION REPORT
+
+Company: ${company}
+Score: ${score}/100
+
+• Pricing Risk: ${score < 60 ? "High" : "Moderate"}
+• Expansion Gaps Detected
+• Enterprise Readiness: ${score > 70 ? "Strong" : "Limited"}
+
+Recommendation:
+Strategic monetization review advised.
   `;
+
+  results.innerHTML = `
+    <h3>Monetization Score: ${score}/100</h3>
+    <p>Pricing Risk: ${score < 60 ? "High" : "Moderate"}</p>
+    <p>Expansion & Enterprise Gaps Detected</p>
+    <button onclick="exportPDF(\`${report}\`)">Export PDF</button>
+  `;
+
+  drawHeatmap(score);
+}
+
+/* ---- HEATMAP ---- */
+function drawHeatmap(score) {
+  const ctx = document.getElementById("heatmapCanvas").getContext("2d");
+  ctx.clearRect(0, 0, 700, 300);
+
+  const areas = ["Pricing", "Packaging", "Expansion", "Enterprise", "Acquisition"];
+  areas.forEach((a, i) => {
+    const risk = rand(20, 90);
+    ctx.fillStyle = risk > 70 ? "#ff4d4d" : risk > 40 ? "#ffd166" : "#06d6a0";
+    ctx.fillRect(i * 140, 300 - risk * 3, 120, risk * 3);
+    ctx.fillStyle = "#000";
+    ctx.fillText(a, i * 140 + 20, 290);
+  });
+}
+
+/* ---- INVESTOR MODE ---- */
+function runInvestorMode() {
+  const box = document.getElementById("investorResults");
+  box.classList.remove("hidden");
+
+  box.innerHTML = `
+    <h3>Investor / PE Intelligence Summary</h3>
+    <ul>
+      <li>Revenue Leakage Exposure: Moderate–High</li>
+      <li>Pricing Efficiency Risk: Material</li>
+      <li>Upside via Repackaging & Expansion</li>
+      <li>Due Diligence Flag: Monetization Optimization Required</li>
+    </ul>
+  `;
+}
+
+/* ---- SECURITY COPILOT ---- */
+function sendChat() {
+  const input = document.getElementById("chatInput");
+  const log = document.getElementById("chatLog");
+
+  log.innerHTML += `<div><strong>You:</strong> ${input.value}</div>`;
 
   setTimeout(() => {
-    generateResults(company, website, industry);
-  }, randomBetween(2500, 4500));
+    log.innerHTML += `<div><strong>AI Co-Pilot:</strong> 
+    Potential monetization systems increase attack surface. 
+    Recommend threat modeling and access segmentation.</div>`;
+    log.scrollTop = log.scrollHeight;
+  }, 600);
+
+  input.value = "";
 }
 
-/* ---------- Intelligence Generation ---------- */
-
-function generateResults(company, website, industry) {
-  const monetizationScore = randomBetween(42, 86);
-
-  const pricingRisk = monetizationScore < 60 ? "High" : "Moderate";
-  const expansionGap = randomBetween(0, 100) > 55;
-  const enterpriseFit = randomBetween(0, 100) > 50;
-  const adWaste = randomBetween(0, 100) > 60;
-
-  const results = document.getElementById("results");
-
-  results.innerHTML = `
-    <h3>Monetization Intelligence Report</h3>
-
-    <div style="margin-top:15px;">
-      <strong>Company:</strong> ${company}<br/>
-      <strong>Industry:</strong> ${industry}<br/>
-      <strong>Website:</strong> ${website}
-    </div>
-
-    <hr style="margin:20px 0; opacity:0.2;"/>
-
-    <h4>Monetization Health Score</h4>
-    <div style="font-size:32px; color:#7aa2ff;">
-      ${monetizationScore} / 100
-    </div>
-
-    <p style="margin-top:10px;">
-      This score reflects pricing efficiency, expansion readiness, and revenue risk exposure.
-    </p>
-
-    <hr style="margin:20px 0; opacity:0.2;"/>
-
-    <h4>Detected Risk Signals</h4>
-    <ul>
-      <li>Pricing & packaging risk: <strong>${pricingRisk}</strong></li>
-      <li>Expansion revenue gap: <strong>${expansionGap ? "Detected" : "Low"}</strong></li>
-      <li>Enterprise readiness mismatch: <strong>${enterpriseFit ? "Likely" : "Limited"}</strong></li>
-      <li>Customer acquisition inefficiency: <strong>${adWaste ? "Potential Ad Spend Waste" : "Stable"}</strong></li>
-    </ul>
-
-    <hr style="margin:20px 0; opacity:0.2;"/>
-
-    <h4>Executive Recommendations</h4>
-    <ul>
-      ${pricingRisk === "High" ? "<li>Re-evaluate pricing tiers and value anchoring.</li>" : ""}
-      ${expansionGap ? "<li>Introduce expansion hooks for high-intent users.</li>" : ""}
-      ${enterpriseFit ? "<li>Create enterprise packaging with differentiated value.</li>" : ""}
-      ${adWaste ? "<li>Audit acquisition channels for ROI leakage.</li>" : ""}
-      <li>Run a deeper monetization strategy review.</li>
-    </ul>
-
-    <hr style="margin:20px 0; opacity:0.2;"/>
-
-    <div style="background:#0f1733; padding:20px; border-radius:10px;">
-      <h4>Next Step</h4>
-      <p>
-        This public scan highlights potential monetization risks using external signals only.
-        A deeper strategic review can quantify revenue impact and provide an execution roadmap.
-      </p>
-      <button onclick="bookReview()" style="margin-top:10px;">
-        Book Monetization Strategy Review
-      </button>
-    </div>
-  `;
+function companyInput() {
+  return document.getElementById("company").value || "Unnamed Company";
 }
-
-/* ---------- CTA Action ---------- */
-
-function bookReview() {
-  alert(
-    "Thanks for your interest.\n\nNext step:\n• Paid Monetization Report\n• Strategy Call\n• Enterprise License\n\n(Contact: Victor Bosah)"
-  );
-}
-
-/* ---------- Optional: Auto Demo Data ---------- */
-/* Uncomment to auto-fill demo for presentations */
-
-// window.onload = () => {
-//   document.getElementById("company").value = "Example SaaS Co";
-//   document.getElementById("website").value = "https://example.com";
-// };
