@@ -1,60 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMIP™ | Enterprise Monetization Intelligence</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMIP Enterprise Suite</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-    <header class="neon-header">
-        <h1>EMIP™ - Enterprise Monetization Intelligence Platform</h1>
-        <p class="positioning-statement">FINAL POSITIONING STATEMENT: EMIP™ is the pre-financial intelligence layer that exposes hidden revenue risks and growth opportunities using only public market signals, empowering executives, investors, and operators to act before metrics reflect damage.</p>
-    </header>
+  <header>
+    <h1>EMIP Enterprise Monetization Intelligence Platform</h1>
+    <p>Your billion-dollar enterprise toolkit — analytics, AI co-pilot, webinars & investor deck.</p>
+  </header>
 
-    <main>
-        <section id="announcement">
-            <h2>🚨 FINAL ANNOUNCEMENT: EMIP™</h2>
-            <p>Revenue doesn’t fail loudly. It fails quietly; long before dashboards, forecasts, or churn metrics react. That silent failure is what I built EMIP™ to expose.</p>
-            <!-- Full announcement text from your input integrated here -->
-            <div id="slide-content"></div> <!-- Dynamic slide content here -->
-        </section>
+  <main>
+    <section class="hero">
+      <button id="aiCoPilotBtn">AI Cybersecurity Co-Pilot</button>
+      <div id="liveChat" class="chat-box">
+        <div class="messages"></div>
+        <input type="text" id="chatInput" placeholder="Ask the AI...">
+      </div>
+    </section>
 
-        <section id="controls">
-            <button id="prev-slide">Previous Slide</button>
-            <button id="next-slide">Next Slide</button>
-            <button id="export-pdf">Export Slide Deck PDF</button>
-            <button id="export-csv">Export Email List CSV</button>
-            <label for="investor-mode">Investor / PE Mode:</label>
-            <input type="checkbox" id="investor-mode">
-        </section>
+    <section class="webinar">
+      <h2>Webinar Simulation</h2>
+      <div class="slides" id="slidesContainer">
+        <div class="slide active">Slide 1: FINAL POSITIONING STATEMENT</div>
+        <div class="slide">Slide 2: LINKEDIN AUTOMATION</div>
+        <div class="slide">Slide 3: Enterprise Pitch Deck Overview</div>
+        <div class="slide">Slide 4: Monetization Heatmaps</div>
+        <div class="slide">Slide 5: Investor / PE Mode</div>
+      </div>
+      <div class="slide-controls">
+        <button id="prevSlide">Previous Slide</button>
+        <button id="nextSlide">Next Slide</button>
+      </div>
+      <button id="exportPDF">Export PDF</button>
+    </section>
 
-        <section id="email-capture">
-            <h2>Capture Email (Privacy-Safe)</h2>
-            <form id="email-form">
-                <input type="email" id="email-input" placeholder="Enter your email" required>
-                <button type="submit">Submit</button>
-            </form>
-            <p>Emails stored locally in your browser for privacy. Export to CSV for outreach.</p>
-        </section>
+    <section class="analytics">
+      <h2>Monetization Heatmap</h2>
+      <canvas id="heatmapChart" width="600" height="400"></canvas>
+    </section>
 
-        <section id="heatmap-section">
-            <h2>Monetization Heatmap Visuals</h2>
-            <canvas id="heatmap-canvas" width="400" height="300"></canvas>
-            <div id="investor-views" style="display: none;">
-                <h3>Investor / PE Mode Views</h3>
-                <canvas id="valuation-chart" width="400" height="200"></canvas>
-                <p>Additional insights: Valuation risks, scale opportunities, and PE-specific heatmaps.</p>
-            </div>
-        </section>
-    </main>
+    <section class="outreach">
+      <h2>Email Capture & Outreach</h2>
+      <input type="email" id="emailInput" placeholder="Enter your email (privacy-safe)">
+      <button id="saveEmail">Save Email</button>
+      <button id="exportCSV">Export CSV</button>
+      <textarea id="socialCopy" placeholder="Paste your social content here"></textarea>
+    </section>
+  </main>
 
-    <footer>
-        <p>© 2026 Victor Bosah. All rights reserved.</p>
-    </footer>
+  <footer>
+    <p>EMIP by Victor G — <a href="https://victorbosah50-code.github.io/EMIP-by-Victor-G/">Live Demo Link</a></p>
+  </footer>
 
-    <script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
