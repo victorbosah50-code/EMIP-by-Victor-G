@@ -1,117 +1,96 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
 }
 
 body {
-  background: #0b0f1a;
-  color: #eaeaf0;
-  line-height: 1.6;
+  margin: 0;
+  background: #f7f4ef;
+  color: #111;
 }
 
-/* NAV */
 .nav {
   display: flex;
   justify-content: space-between;
   padding: 20px 40px;
-  background: #0f1525;
-  position: sticky;
-  top: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
 }
 
 .nav a {
   margin-left: 20px;
   text-decoration: none;
-  color: #cfd6ff;
+  color: #000;
+  font-weight: 500;
 }
 
-/* HERO */
 .hero {
   padding: 100px 40px;
   text-align: center;
+  background: linear-gradient(135deg, #fffaf0, #f7f4ef);
 }
 
-.hero h1 span {
-  color: #7aa2ff;
+.hero span {
+  color: #6a4df4;
 }
 
 .hero button {
-  margin-top: 30px;
   padding: 14px 28px;
-  background: #7aa2ff;
+  background: #000;
+  color: #fff;
   border: none;
-  font-size: 16px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
-.trust {
-  margin-top: 12px;
-  font-size: 14px;
-  opacity: 0.7;
-}
-
-/* SECTIONS */
 .section {
   padding: 80px 40px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.card {
-  background: #121a35;
-  padding: 30px;
-  border-radius: 12px;
-}
-
-/* SCAN */
 .scan-box {
-  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 12px;
+  margin-top: 20px;
 }
 
-.scan-box input,
-.scan-box select {
+input, select {
   padding: 12px;
   width: 220px;
 }
 
-.scan-box button {
-  padding: 12px 20px;
-  background: #7aa2ff;
-  border: none;
-}
-
-/* RESULTS */
 .results {
-  margin-top: 40px;
+  margin-top: 30px;
   padding: 20px;
-  background: #10172e;
-  border-radius: 10px;
+  background: #ffffff;
+  border-left: 4px solid #000;
 }
 
 .hidden {
   display: none;
 }
 
-/* CTA */
-.cta {
-  text-align: center;
-  padding: 100px 40px;
-  background: linear-gradient(135deg, #1a245f, #0b0f1a);
+canvas {
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.chat-box {
+  max-width: 600px;
+}
+
+.chat-log {
+  height: 200px;
+  overflow-y: auto;
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
 }
 
 footer {
-  padding: 20px;
+  padding: 30px;
   text-align: center;
-  font-size: 13px;
-  opacity: 0.6;
+  background: #fff;
+  border-top: 1px solid #ddd;
 }
