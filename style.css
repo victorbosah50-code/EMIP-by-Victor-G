@@ -1,77 +1,83 @@
 body {
-    background-color: #0a0a0a;
-    color: #00ffcc;
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    padding: 20px;
-    animation: glow-bg 5s infinite alternate;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f3f4f6;
+  color: #111;
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes glow-bg {
-    0% { background-color: #0a0a0a; }
-    100% { background-color: #001a1a; }
+header {
+  background: linear-gradient(90deg, #0f172a, #1e293b);
+  color: white;
+  padding: 2rem;
+  text-align: center;
 }
 
-.neon-header {
-    text-align: center;
-    border-bottom: 2px solid #00ffcc;
-    padding-bottom: 20px;
-    text-shadow: 0 0 10px #00ffcc;
-    animation: neon-flicker 1.5s infinite alternate;
+h1 {
+  font-size: 2.5rem;
 }
 
-@keyframes neon-flicker {
-    0% { text-shadow: 0 0 5px #00ffcc; }
-    100% { text-shadow: 0 0 20px #00ffcc; }
-}
-
-h1, h2, h3 {
-    color: #00ffcc;
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
 }
 
 button {
-    background-color: #00ffcc;
-    color: #0a0a0a;
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  margin: 0.25rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #00ffcc;
+  background-color: #2563eb;
 }
 
-#slide-content {
-    border: 1px solid #00ffcc;
-    padding: 20px;
-    margin: 20px 0;
-    background-color: #001a1a;
-    box-shadow: 0 0 10px #00ffcc;
+.chat-box {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  width: 400px;
+  max-width: 100%;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
 }
 
-#email-form {
-    display: flex;
-    justify-content: center;
+.messages {
+  height: 150px;
+  overflow-y: auto;
+  margin-bottom: 0.5rem;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
 }
 
-#email-input {
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #00ffcc;
-    background-color: #0a0a0a;
-    color: #00ffcc;
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
 }
 
-#heatmap-canvas, #valuation-chart {
-    border: 1px solid #00ffcc;
-    margin: 20px auto;
-    display: block;
+.slides {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  min-height: 150px;
 }
 
-.positioning-statement {
-    font-style: italic;
-    color: #ffcc00;
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
 }
